@@ -1,0 +1,23 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+
+    <div class="button-list">
+      <button routerLink="/cars" class="button-list-item" mat-raised-button color="primary">Home</button>
+      <button routerLink="/cars/red" class="button-list-item" mat-raised-button color="primary">Red Cars</button>
+      <button routerLink="/cars/blue" class="button-list-item" mat-raised-button color="primary">Blue Cars</button>
+      <button routerLink="/cars/green" class="button-list-item" mat-raised-button color="primary">Green Cars</button>
+      <button (click)="addCar()" class="button-list-item" mat-raised-button color="accent">Add a Car</button>
+
+    </div>
+
+  </mat-drawer>
+  <button mat-mini-fab color="primary" (click)="drawer.toggle()" aria-label="Example icon button with a menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="example-sidenav-content">
+
+
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-drawer-container>

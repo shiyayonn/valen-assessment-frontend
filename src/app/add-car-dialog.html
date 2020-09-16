@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Add a car</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="carForm" class="flex">
+        <mat-form-field class="example-form-field">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Select Color</mat-label>
+            <mat-select formControlName="color" name="color">
+                <mat-option *ngFor="let color of colors" [value]="color.value">
+                    {{color.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button [disabled]="carForm.invalid" mat-dialog-close mat-raised-button color="primary" (click)="submit()"
+        cdkFocusInitial>Submit</button>
+</mat-dialog-actions>
+<style>
+    .flex {
+        display: flex;
+        flex-direction: column;
+
+    }
+</style>
